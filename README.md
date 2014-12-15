@@ -16,3 +16,8 @@ optional arguments:
   -o OUTPUT, --output OUTPUT
                         CSV output file
 ```
+
+#Commercial Tools Parsing Cache2
+|Company|Tool|URL|
+|---|---|---|
+|Digital Detective|NetAnalysis & HstEx|http://www.digital-detective.net/digital-forensic-software/netanalysis/|
