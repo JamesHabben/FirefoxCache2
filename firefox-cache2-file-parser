@@ -6,9 +6,9 @@ import hashlib
 import csv
 
 argParser = argparse.ArgumentParser(description='Parse Firefox cache2 files in a directory or individually.')
-argParser.add_argument('-f', '--file', help='single cache2 file to parse', action='store_true')
-argParser.add_argument('-d', '--directory', help='directory with cache2 files to parse')#, action='store_true')
-argParser.add_argument('-o', '--output', help='CSV output file')#, action='store_true')
+argParser.add_argument('-f', '--file', help='single cache2 file to parse')
+argParser.add_argument('-d', '--directory', help='directory with cache2 files to parse')
+argParser.add_argument('-o', '--output', help='CSV output file')
 args = argParser.parse_args()
 
 
