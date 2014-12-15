@@ -1,0 +1,43 @@
+import struct
+import datetime
+import os
+
+filePath = '/Users/jameshabben/Documents/_temp/cache2/index'
+
+indexFile = open(filePath, 'r')
+indexFileSize = os.path.getsize(filePath)
+
+version = struct.unpack('>i', indexFile.read(4))[0]
+lastWrittenInt = struct.unpack('>i', indexFile.read(4))[0]
+dirty = struct.unpack('>i', indexFile.read(4))[0]
+lastWritten = datetime.datetime.fromtimestamp( lastWrittenInt)
+
+print version
+print lastWritten
+print dirty
+
+count = 0
+
+while indexFileSize - indexFile.tell() > 36 :
+    #print indexFileSize - indexFile.tell()
+    print "loc: {0}".format(indexFile.tell()),
+    #hash = struct.unpack('h', indexFile.read(20))[0]
+    hash = indexFile.read(20)
+    frequency = struct.unpack('>i', indexFile.read(4))[0]
+    expireTimeInt = struct.unpack('>i', indexFile.read(4))[0]
+    appId = struct.unpack('>i', indexFile.read(4))[0]
+    flags = struct.unpack('>B', indexFile.read(1))[0]
+    fileSize = struct.unpack('>I', '\x00'+indexFile.read(3))[0]
+    if hash == 0 :
+        break
+    expireTime = datetime.datetime.fromtimestamp(expireTimeInt)
+    print "hash: {0}h".format(hash.encode('hex')),
+    print "freq: {0}".format(hex(frequency)),
+    print "expr: {0}".format(expireTime),
+    print "apid: {0}".format(hex(appId)),
+    print "flgs: {0}".format(hex(flags)),
+    print "size: {0}".format(fileSize)
+    #print "\n"
+    count += 1
+    isMore = fileSize - indexFile.tell()
+print "\nrecord count: {0}".format(count)
