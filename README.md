@@ -21,4 +21,5 @@ optional arguments:
 |Company|Tool|URL|
 |---|---|---|
 |Digital Detective|NetAnalysis & HstEx|http://www.digital-detective.net/digital-forensic-software/netanalysis/|
-|NirSoft|MozillaCacheView|http://www.nirsoft.net/utils/mozilla_cache_viewer.html|
+|Foxton Software|Browser History Viewer (Free)|http://forensic-software.co.uk/browser-history-viewer/|
+|NirSoft|MozillaCacheView (Free)|http://www.nirsoft.net/utils/mozilla_cache_viewer.html|
