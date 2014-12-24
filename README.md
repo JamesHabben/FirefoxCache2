@@ -17,6 +17,21 @@ optional arguments:
                         CSV output file
 ```
 
+```
+usage: firefox-cache2-index-parser.py [-h] [-o OUTPUT] file
+
+Parse Firefox cache2 index file.
+
+positional arguments:
+  file                  index file to parse
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o OUTPUT, --output OUTPUT
+                        CSV output file
+
+```
+
 #Commercial Tools Parsing Cache2
 |Company|Tool|URL|
 |---|---|---|
