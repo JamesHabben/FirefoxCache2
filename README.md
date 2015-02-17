@@ -2,6 +2,13 @@ FirefoxCache2
 =============
 Python scripts for parsing the index file and individual cache files from the cache2 folder of Firefox defaulted on in version 32
 
+##Blogs
+Written by [@JamesHabben](https://twitter.com/JamesHabben):<br>
+http://encase-forensic-blog.guidancesoftware.com/2015/02/firefox-cache2-storage-breakdown.html
+
+Written by [@sandersonforens](https://twitter.com/sandersonforens):<br>
+http://sandersonforensics.com/forum/content.php?216-Converting-the-new-Firefox-cache2-files-to-an-SQLite-DB-for-investigating
+
 ##Usage
 ```
 usage: firefox-cache2-file-parser.py [-h] [-f FILE] [-d DIRECTORY] [-o OUTPUT]
