@@ -45,3 +45,4 @@ optional arguments:
 |Digital Detective|NetAnalysis & HstEx|http://www.digital-detective.net/digital-forensic-software/netanalysis/|
 |Foxton Software|Browser History Viewer (Free)|http://forensic-software.co.uk/browser-history-viewer/|
 |NirSoft|MozillaCacheView (Free)|http://www.nirsoft.net/utils/mozilla_cache_viewer.html|
+|Magnet Software|Internet Evidence Finder|http://www.magnetforensics.com/|
