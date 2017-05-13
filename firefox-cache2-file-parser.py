@@ -41,6 +41,7 @@ def ParseCacheFile (parseFile):
     keySize = struct.unpack('>I', parseFile.read(4))[0]
     flags = struct.unpack('>I', parseFile.read(4))[0] if version >= 2 else 0
     key = parseFile.read(keySize)
+    key_hash = hashlib.sha1(key).hexdigest().upper()
 
     if doCsv :
         csvWriter.writerow((fetchCount,
@@ -50,7 +51,7 @@ def ParseCacheFile (parseFile):
                             datetime.datetime.fromtimestamp(expireInt),
                             flags,
                             key,
-                            hashlib.sha1(key).hexdigest()))
+                            key_hash))
 
     print "version: {0}".format(version)
     print "fetchCount: {0}".format(fetchCount)
@@ -61,7 +62,7 @@ def ParseCacheFile (parseFile):
     print "keySize: {0}".format(keySize)
     print "flags: {0}".format(flags)
     print "key: {0}".format(key)
-    print "key sha1: {0}\n".format(hashlib.sha1(key).hexdigest())
+    print "key sha1: {0}\n".format(key_hash)
 
 #ParseCacheFile(testFile)
 #procPath = script_dir + '/' + testDir
