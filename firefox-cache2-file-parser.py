@@ -39,6 +39,7 @@ def ParseCacheFile (parseFile):
     frecency = struct.unpack('>I', parseFile.read(4))[0]
     expireInt = struct.unpack('>I', parseFile.read(4))[0]
     keySize = struct.unpack('>I', parseFile.read(4))[0]
+    flags = struct.unpack('>I', parseFile.read(4))[0] if version >= 2 else 0
     key = parseFile.read(keySize)
 
     if doCsv :
@@ -47,6 +48,7 @@ def ParseCacheFile (parseFile):
                             datetime.datetime.fromtimestamp(lastModInt),
                             hex(frecency),
                             datetime.datetime.fromtimestamp(expireInt),
+                            flags,
                             key,
                             hashlib.sha1(key).hexdigest()))
 
@@ -57,6 +59,7 @@ def ParseCacheFile (parseFile):
     print "frecency: {0}".format(hex(frecency))
     print "expire: {0}".format(datetime.datetime.fromtimestamp(expireInt))
     print "keySize: {0}".format(keySize)
+    print "flags: {0}".format(flags)
     print "key: {0}".format(key)
     print "key sha1: {0}\n".format(hashlib.sha1(key).hexdigest())
 
@@ -67,7 +70,7 @@ if args.directory or args.file :
         doCsv = True
         csvFile = open(args.output, 'w')
         csvWriter = csv.writer(csvFile, delimiter=',', quoting=csv.QUOTE_NONNUMERIC)
-        csvWriter.writerow(('Fetch Count', 'Last Fetch', 'Last Modified', 'Frecency', 'Expiration', 'URL', 'Key Hash'))
+        csvWriter.writerow(('Fetch Count', 'Last Fetch', 'Last Modified', 'Frecency', 'Expiration', 'Flags', 'URL', 'Key Hash'))
     procPath = args.directory
     fileList = os.listdir(procPath)
     for filePath in fileList :
